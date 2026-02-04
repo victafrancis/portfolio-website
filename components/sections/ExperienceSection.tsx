@@ -6,20 +6,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Briefcase } from 'lucide-react'
 import { experiences } from '@/lib/data/experiences'
+import { Container } from '@/components/ui/container'
 
 export function ExperienceSection() {
   return (
-    <section className="container mx-auto px-4 py-16">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center gap-3 mb-8">
-          <Briefcase className="h-6 w-6 text-accent" />
-          <h2 className="text-3xl md:text-4xl font-bold">Experience</h2>
-        </div>
+    <section className="py-16">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Briefcase className="h-6 w-6 text-accent" />
+            <h2 className="text-3xl md:text-4xl font-bold">Experience</h2>
+          </div>
 
         <Accordion type="single" collapsible className="space-y-4">
           {experiences.map((exp, index) => (
@@ -60,7 +62,8 @@ export function ExperienceSection() {
             </AccordionItem>
           ))}
         </Accordion>
-      </motion.div>
+        </motion.div>
+      </Container>
     </section>
   )
 }

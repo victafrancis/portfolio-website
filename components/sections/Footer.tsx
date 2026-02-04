@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react'
+import { Container } from '@/components/ui/container'
 
 export function Footer() {
   const scrollToTop = () => {
@@ -23,7 +24,7 @@ export function Footer() {
       transition={{ duration: 0.5 }}
       className="border-t bg-card/50 backdrop-blur-sm"
     >
-      <div className="container mx-auto px-4 py-12">
+      <Container className="py-12">
         <div className="grid gap-8 md:grid-cols-3 items-start mb-8">
           {/* Branding */}
           <div className="space-y-2">
@@ -92,7 +93,7 @@ export function Footer() {
             <ArrowUp className="h-4 w-4" />
           </Button>
         </div>
-      </div>
+      </Container>
     </motion.footer>
   )
 }

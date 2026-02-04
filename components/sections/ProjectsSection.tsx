@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { ExternalLink, Github, Images, Code, Maximize2 } from 'lucide-react'
 import { projects } from '@/lib/data/projects'
 import { Lightbox } from '@/components/ui/lightbox'
+import { Container } from '@/components/ui/container'
 
 export function ProjectsSection() {
   const [activeCard, setActiveCard] = useState<string | null>(null)
@@ -15,17 +16,18 @@ export function ProjectsSection() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-16" id="projects-section">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center gap-3 mb-8">
-          <Code className="h-6 w-6 text-accent" />
-          <h2 className="text-3xl md:text-4xl font-bold">Featured Projects</h2>
-        </div>
+    <section className="py-16" id="projects-section">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Code className="h-6 w-6 text-accent" />
+            <h2 className="text-3xl md:text-4xl font-bold">Featured Projects</h2>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, index) => {
@@ -132,7 +134,8 @@ export function ProjectsSection() {
             )
           })}
         </div>
-      </motion.div>
+        </motion.div>
+      </Container>
     </section>
   )
 }

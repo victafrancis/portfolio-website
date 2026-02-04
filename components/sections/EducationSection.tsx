@@ -6,20 +6,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Trophy } from 'lucide-react'
 import { educationAndCertifications } from '@/lib/data/education'
+import { Container } from '@/components/ui/container'
 
 export function EducationSection() {
   return (
-    <section className="container mx-auto px-4 py-16">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex items-center gap-3 mb-8">
-          <Trophy className="h-6 w-6 text-accent" />
-          <h2 className="text-3xl md:text-4xl font-bold">Education & Certifications</h2>
-        </div>
+    <section className="py-16">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Trophy className="h-6 w-6 text-accent" />
+            <h2 className="text-3xl md:text-4xl font-bold">Education & Certifications</h2>
+          </div>
 
         <Accordion type="single" collapsible className="space-y-4">
           {educationAndCertifications.map((edu, index) => (
@@ -66,7 +68,8 @@ export function EducationSection() {
             </AccordionItem>
           ))}
         </Accordion>
-      </motion.div>
+        </motion.div>
+      </Container>
     </section>
   )
 }

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button, buttonVariants } from '@/components/ui/button'
+import { Container } from '@/components/ui/container'
 import { Badge } from '@/components/ui/badge'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Copy, Github, Linkedin, Mail, ChevronRight } from 'lucide-react'
@@ -18,15 +19,17 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//cdn.credly.com/assets/utilities/embed.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+    const existingScript = document.querySelector('script[data-credly-embed]')
+
+    if (!existingScript) {
+      const script = document.createElement('script')
+      script.src = '//cdn.credly.com/assets/utilities/embed.js'
+      script.async = true
+      script.type = 'text/javascript'
+      script.dataset.credlyEmbed = 'true'
+      document.head.appendChild(script)
+    }
+  }, [])
 
   useEffect(() => {
     return () => {
@@ -53,14 +56,15 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
   }
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="flex flex-col md:grid md:gap-8 md:grid-cols-4 md:gap-12 items-start md:items-center gap-8">
+    <section className="py-16 md:py-24">
+      <Container>
+        <div className="flex flex-col md:grid md:gap-8 md:grid-cols-[minmax(0,3fr)_minmax(260px,1fr)] md:gap-12 items-start md:items-center gap-8">
         {/* Left Column - The Pitch */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="space-y-6 md:col-span-3 w-full"
+          className="space-y-6 w-full"
         >
           {/* Profile Image */}
           <motion.div
@@ -199,16 +203,17 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex justify-center md:justify-end w-full md:w-auto"
+          className="flex justify-center md:justify-end md:self-center w-full md:w-auto"
         >
           <div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center flex-none"
             style={{
               width: heroData.credlyBadge.width,
               height: heroData.credlyBadge.height
             }}
           >
             <div
+              className="flex items-center justify-center"
               data-iframe-width={heroData.credlyBadge.width}
               data-iframe-height={heroData.credlyBadge.height}
               data-share-badge-id={heroData.credlyBadge.badgeId}
@@ -217,7 +222,8 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
           </div>
 
         </motion.div>
-      </div>
+        </div>
+      </Container>
     </section>
   )
 }

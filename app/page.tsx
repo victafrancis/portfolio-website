@@ -8,6 +8,7 @@ import { EducationSection } from '@/components/sections/EducationSection'
 import { SkillsSection } from '@/components/sections/SkillsSection'
 import { MoreLifeSection } from '@/components/sections/MoreLifeSection'
 import { Footer } from '@/components/sections/Footer'
+import { Container } from '@/components/ui/container'
 
 export default function PortfolioPage() {
   const handleViewWork = () => {
@@ -30,16 +31,18 @@ export default function PortfolioPage() {
       <ProjectsSection />
 
       {/* Dad Jokes */}
-      <section className="container mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center space-y-6"
-        >
-          <DadJokes />
-        </motion.div>
+      <section className="py-16">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-6"
+          >
+            <DadJokes />
+          </motion.div>
+        </Container>
       </section>
 
       {/* Education & Certifications */}
@@ -49,20 +52,22 @@ export default function PortfolioPage() {
       <SkillsSection />
 
       {/* More Life Section */}
-      <section className="container mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <div className="text-2xl">✨</div>
-            <h2 className="text-3xl md:text-4xl font-bold">More of Life</h2>
-          </div>
+      <section className="py-16">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="text-2xl">✨</div>
+              <h2 className="text-3xl md:text-4xl font-bold">More of Life</h2>
+            </div>
 
-          <MoreLifeSection />
-        </motion.div>
+            <MoreLifeSection />
+          </motion.div>
+        </Container>
       </section>
 
         {/* Footer */}

@@ -6,13 +6,14 @@ import { Server, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { techStackGroups } from '@/lib/data/tech-stack'
+import { Container } from '@/components/ui/container'
 
 export function SkillsSection() {
   const [skillsExpanded, setSkillsExpanded] = useState(false)
 
   return (
     <section className="py-16 border-y overflow-hidden">
-      <div className="container mx-auto px-4 space-y-8">
+      <Container className="space-y-8">
         <div className="flex items-center gap-3">
           <Server className="h-6 w-6 text-accent" />
           <h2 className="text-3xl md:text-4xl font-bold">Technical Skills</h2>
@@ -85,7 +86,7 @@ export function SkillsSection() {
             </div>
           </motion.div>
         )}
-      </div>
+      </Container>
     </section>
   )
 }
