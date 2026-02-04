@@ -1,5 +1,4 @@
 'use client'
-
 import { motion } from 'framer-motion'
 import DadJokes from '@/components/DadJokes'
 import { HeroSection } from '@/components/sections/HeroSection'
@@ -8,7 +7,6 @@ import { ProjectsSection } from '@/components/sections/ProjectsSection'
 import { EducationSection } from '@/components/sections/EducationSection'
 import { SkillsSection } from '@/components/sections/SkillsSection'
 import { MoreLifeSection } from '@/components/sections/MoreLifeSection'
-import { Container } from '@/components/ui/container'
 import { Footer } from '@/components/sections/Footer'
 
 export default function PortfolioPage() {
@@ -18,9 +16,12 @@ export default function PortfolioPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <HeroSection onViewWork={handleViewWork} />
+    <main className="relative min-h-screen bg-transparent text-foreground">
+      <div className="fixed inset-0 z-0 bg-black" aria-hidden="true" />
+      <div className="galaxy-background is-visible" aria-hidden="true" />
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <HeroSection onViewWork={handleViewWork} />
 
       {/* Experience Section */}
       <ExperienceSection />
@@ -64,8 +65,9 @@ export default function PortfolioPage() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
     </main>
   )
 }

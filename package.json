@@ -1,6 +1,7 @@
 {
-  "name": "my-v0-project",
+  "name": "portfolio-website",
   "version": "0.1.0",
+  "author": "Francis Victa",
   "private": true,
   "scripts": {
     "build": "next build",

@@ -61,7 +61,7 @@ export const projects: Project[] = [
     links: [
       {
         label: 'Live Demo',
-        href: 'https://francisvicta.com/inflation-effect/'
+        href: 'https://victafrancis.github.io/inflation-effect/'
       },
       {
         label: 'GitHub',
@@ -106,11 +106,11 @@ export const projects: Project[] = [
     links: [
       {
         label: 'Web Snapshots',
-        href: 'https://francisvicta.com/projects-image-gallery/tpc-web.html'
+        href: 'https://victafrancis.github.io/projects-image-gallery/tpc-web.html'
       },
       {
         label: 'Mobile Snapshots',
-        href: 'https://francisvicta.com/projects-image-gallery/tpc-mobile.html'
+        href: 'https://victafrancis.github.io/projects-image-gallery/tpc-mobile.html'
       }
     ]
   },
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     links: [
       {
         label: 'Snapshots',
-        href: 'https://francisvicta.com/projects-image-gallery/futuredining.html'
+        href: 'https://victafrancis.github.io/projects-image-gallery/futuredining.html'
       }
     ]
   },

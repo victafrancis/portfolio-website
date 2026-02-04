@@ -8,25 +8,27 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Francis Victa | Full Stack Cloud Developer & AI Solutions Engineer',
-  description: 'Leveraging code, data, and curiosity to build the "more". AWS Certified Developer showcasing full-stack projects and data analysis work.',
-  generator: 'v0.app',
+  title: 'Francis Victa | Full-Stack Cloud Developer & AI Solutions Engineer',
+  description:
+    'Portfolio of Francis Victa, a Toronto-based full-stack engineer and cloud developer focused on thoughtful product experiences, data-driven insights, and AI-assisted solutions.',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/favicon.ico',
+        type: 'image/x-icon',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 
