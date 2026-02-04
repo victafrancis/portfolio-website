@@ -9,9 +9,9 @@ This document maps content from the legacy static site (`victafrancis.github.io`
 - Experience - DONE
 - Projects (Developer, Data, Game) - DONE
 - Education - DONE
-- Skills
-- More Life
-- Footer
+- Skills - DONE
+- More Life - DONE
+- Footer - DONE
 
 ## ⛔️ Excluded (For Now)
 - NASA section

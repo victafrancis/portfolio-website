@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Server, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
-import { techStack } from '@/lib/data/tech-stack'
+import { techStackGroups } from '@/lib/data/tech-stack'
 
 export function SkillsSection() {
   const [skillsExpanded, setSkillsExpanded] = useState(false)
@@ -19,17 +19,27 @@ export function SkillsSection() {
         </div>
 
         {!skillsExpanded ? (
-          <div className="relative">
-            <div className="flex gap-8 animate-marquee whitespace-nowrap">
-              {[...techStack, ...techStack].map((tech, index) => (
-                <span
-                  key={index}
-                  className="inline-flex items-center gap-2 text-lg font-medium text-muted-foreground hover:text-accent transition-colors"
+          <div className="relative space-y-6">
+            {techStackGroups.map((group, groupIndex) => (
+              <div key={group.label} className="space-y-2">
+                <div className={`text-sm font-semibold uppercase tracking-[0.2em] ${group.color}`}>
+                  {group.label}
+                </div>
+                <div
+                  className="flex gap-8 animate-marquee whitespace-nowrap"
+                  style={{ animationDelay: `${groupIndex * 0.5}s` }}
                 >
-                  {tech}
-                </span>
-              ))}
-            </div>
+                  {[...group.items, ...group.items].map((tech, index) => (
+                    <span
+                      key={`${group.label}-${index}`}
+                      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent ${group.borderColor}`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
             <div className="mt-6 text-center">
               <Button
                 variant="outline"
@@ -45,15 +55,24 @@ export function SkillsSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="space-y-6"
+            className="space-y-8"
           >
-            <div className="flex flex-wrap gap-3">
-              {techStack.map((tech) => (
-                <Badge key={tech} variant="secondary" className="px-4 py-2 text-base">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
+            {techStackGroups.map((group) => (
+              <div key={group.label} className="space-y-4">
+                <div className={`text-lg font-semibold ${group.color}`}>{group.label}</div>
+                <div className="flex flex-wrap gap-3">
+                  {group.items.map((tech) => (
+                    <Badge
+                      key={`${group.label}-${tech}`}
+                      variant="secondary"
+                      className={`px-4 py-2 text-base border ${group.borderColor}`}
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            ))}
             <div className="text-center">
               <Button
                 variant="outline"

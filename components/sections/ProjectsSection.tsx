@@ -75,7 +75,9 @@ export function ProjectsSection() {
                         </p>
                       </div>
                       {project.links && project.links.length > 0 ? (
-                        <div className="flex flex-wrap gap-2">
+                        <div
+                          className={`flex flex-wrap gap-2 ${isActive ? 'pointer-events-auto' : 'pointer-events-none md:pointer-events-auto'}`}
+                        >
                           {project.links.map((link) => {
                             const label = link.label.toLowerCase()
                             const Icon = label.includes('github')
@@ -90,6 +92,7 @@ export function ProjectsSection() {
                                 href={link.href}
                                 target="_blank"
                                 rel="noreferrer"
+                                onClick={(event) => event.stopPropagation()}
                                 className="inline-flex items-center gap-1 rounded-md border border-white/20 px-2 py-1 text-xs text-white/90 transition hover:border-white/60 hover:text-white"
                               >
                                 <Icon className="h-3.5 w-3.5" />

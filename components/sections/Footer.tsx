@@ -10,9 +10,9 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/francisvicta/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/victafrancis', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:francisvicta45@gmail.com', label: 'Email' }
   ]
 
   return (
@@ -29,7 +29,7 @@ export function Footer() {
           <div className="space-y-2">
             <h3 className="font-bold text-lg">Francis Victa</h3>
             <p className="text-sm text-muted-foreground">
-              Full Stack Cloud Engineer & Data Analyst
+              Live with intention and purpose!
             </p>
           </div>
 
@@ -40,10 +40,10 @@ export function Footer() {
               <a href="#projects-section" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                 Projects
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+              <a href="" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                 About
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+              <a href="mailto:francisvicta45@gmail.com" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                 Contact
               </a>
             </nav>

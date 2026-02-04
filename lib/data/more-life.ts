@@ -12,15 +12,52 @@ export interface MoreLifeCard {
 
 export const moreLifeCards: MoreLifeCard[] = [
   {
-    title: 'Never The Strangers',
-    description: 'Band Member',
-    emoji: '🎸',
-    details: 'Making music and connecting with audiences across the city.',
+    title: 'VR Learning Publication',
+    description: 'Award Winner',
+    emoji: '🥽',
+    details: 'Published research on immersive learning experiences in virtual reality.',
     expandedContent: {
-      description: 'A dynamic indie/alternative band performing across Toronto venues. We blend rock, indie, and experimental sounds to create memorable live experiences.',
+      description: 'Authored a Learn2Learn design charette publication exploring how VR can improve education. Created research matrices, ecosystem maps, personas, and a full solution. Our team won the top prize for the competition.',
       links: [
-        { label: 'Spotify', url: '#' },
-        { label: 'Instagram', url: '#' }
+        { label: 'Publication PDF', url: '/files/Learn2Learn Mini Publication - Kim-Victa.pdf' }
+      ],
+      images: ['/images/vr-l2l.png']
+    }
+  },
+  {
+    title: 'Never The Strangers',
+    description: 'Past Life with Music',
+    emoji: '🎸',
+    details: 'A band formed with my closest friends, creating music that changed our lives.',
+    expandedContent: {
+      description: 'We formed Never The Strangers in university and lived out a dream of writing, performing, and releasing songs together. I left in 2012, but the memories remain unforgettable.',
+      links: [
+        {
+          label: 'YouTube Playlist',
+          url: 'https://www.youtube.com/watch?v=5krVutEOtXk&list=PLKRzgIa9LAtDbXBZZTgo7_sfa0cEmMoCl'
+        },
+        { label: 'Alive MV', url: 'https://www.youtube.com/watch?v=gek7LdfO870' },
+        { label: 'Moving Closer MV', url: 'https://www.youtube.com/watch?v=5Gr-ZMV8F2o' },
+        { label: 'Second Midnight MV', url: 'https://www.youtube.com/watch?v=wY4m2BauvFw' }
+      ],
+      images: ['/images/nts-band.png']
+    }
+  },
+  {
+    title: 'Collabs with Other Artists',
+    description: 'Music / Production / Art',
+    emoji: '🎵',
+    details: 'I still create music with friends and collaborate on projects whenever I can.',
+    expandedContent: {
+      description: 'I occasionally create music with other artists and co-founded Living Room Sessions Toronto, inviting friends to perform live sets with strangers.',
+      links: [
+        { label: 'SoundCloud Profile', url: 'https://soundcloud.com/francisvicta' },
+        { label: 'Track: Now', url: 'https://soundcloud.com/francisvicta/now' },
+        { label: 'Track: Always There', url: 'https://soundcloud.com/francisvicta/always-there' },
+        {
+          label: 'Living Room Sessions Toronto',
+          url: 'https://www.youtube.com/channel/UCcsbhPz4Esyyffw1_GY0J1w'
+        }
       ],
       images: []
     }
@@ -29,42 +66,16 @@ export const moreLifeCards: MoreLifeCard[] = [
     title: 'Heart of a Champion',
     description: 'TCBL Champions',
     emoji: '🏀',
-    details: 'Teamwork, dedication, and the pursuit of excellence on the court.',
+    details: 'Teamwork, discipline, and commitment through league championships.',
     expandedContent: {
-      description: 'Competed in the Toronto Competitive Basketball League, bringing home the championship through strategic gameplay and exceptional teamwork.',
+      description: 'I love being part of a team and striving for excellence together. The heart of a champion means giving everything to improve and help the team win every opportunity.',
       links: [
-        { label: 'Team Profile', url: '#' },
-        { label: 'Stats', url: '#' }
+        {
+          label: 'TCBL Highlights',
+          url: 'https://www.youtube.com/embed/mpSKDRfDi34'
+        }
       ],
-      images: []
-    }
-  },
-  {
-    title: 'VR Learning Publication',
-    description: 'Award Winner',
-    emoji: '🏆',
-    details: 'Published research on immersive learning experiences in virtual reality.',
-    expandedContent: {
-      description: 'Authored and published research exploring how VR technologies can enhance educational outcomes and student engagement in immersive learning environments.',
-      links: [
-        { label: 'Publication', url: '#' },
-        { label: 'Research Paper', url: '#' }
-      ],
-      images: []
-    }
-  },
-  {
-    title: 'NASA Enthusiast',
-    description: 'Space Explorer',
-    emoji: '🚀',
-    details: 'Fascinated by Earthset from Orion and humanity\'s journey to the stars.',
-    expandedContent: {
-      description: 'Passionate about space exploration, particularly the Artemis program and the future of human spaceflight. Following the journey to the Moon and beyond.',
-      links: [
-        { label: 'NASA Updates', url: '#' },
-        { label: 'Artemis Program', url: '#' }
-      ],
-      images: []
+      images: ['/images/champ-tcbl.jpg']
     }
   }
 ]

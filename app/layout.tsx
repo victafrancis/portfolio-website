@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Francis Victa | Full Stack Cloud Engineer & Data Analyst',
+  title: 'Francis Victa | Full Stack Cloud Developer & AI Solutions Engineer',
   description: 'Leveraging code, data, and curiosity to build the "more". AWS Certified Developer showcasing full-stack projects and data analysis work.',
   generator: 'v0.app',
   icons: {

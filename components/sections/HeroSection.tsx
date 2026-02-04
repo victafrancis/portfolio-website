@@ -1,16 +1,22 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Github, Linkedin, Mail, ChevronRight } from 'lucide-react'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Copy, Github, Linkedin, Mail, ChevronRight } from 'lucide-react'
+import { heroData } from '@/lib/data/hero'
+import { cn } from '@/lib/utils'
 
 interface HeroSectionProps {
   onViewWork: () => void
 }
 
 export function HeroSection({ onViewWork }: HeroSectionProps) {
+  const [copied, setCopied] = useState(false)
+  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = '//cdn.credly.com/assets/utilities/embed.js';
@@ -21,6 +27,30 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
       document.head.removeChild(script);
     };
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(heroData.contact.email)
+      setCopied(true)
+
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current)
+      }
+
+      copyTimeoutRef.current = setTimeout(() => setCopied(false), 1500)
+    } catch (error) {
+      setCopied(false)
+      console.error('Failed to copy email address.', error)
+    }
+  }
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
@@ -41,8 +71,8 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
           >
             <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-accent/30 hover:border-accent/60 transition-colors group cursor-pointer shadow-md hover:shadow-lg hover:shadow-accent/20 transition-shadow">
               <img
-                src="/images/profile.png"
-                alt="Francis Victa"
+                src={heroData.profileImage.src}
+                alt={heroData.profileImage.alt}
                 className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </div>
@@ -55,7 +85,7 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
             >
-              Francis Victa
+              {heroData.name}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -63,7 +93,7 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light"
             >
-              Full Stack Cloud Engineer & AI Developer
+              {heroData.title}
             </motion.p>
           </div>
 
@@ -73,7 +103,7 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
           >
-            Leveraging technology, data and curiosity to build the "more".
+            {heroData.tagline}
           </motion.p>
 
           {/* Philosophy Badges */}
@@ -83,12 +113,15 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
             transition={{ delay: 0.35, duration: 0.5 }}
             className="flex flex-wrap gap-2"
           >
-            <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/30">
-              Student of Life
-            </Badge>
-            <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/30">
-              Magis
-            </Badge>
+            {heroData.badges.map((badge) => (
+              <Badge
+                key={badge}
+                variant="secondary"
+                className="bg-accent/10 text-accent border-accent/30"
+              >
+                {badge}
+              </Badge>
+            ))}
           </motion.div>
 
           {/* CTAs */}
@@ -99,15 +132,35 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
             className="flex flex-wrap gap-4 pt-4"
           >
             <Button size="lg" className="bg-accent hover:bg-accent/90" onClick={onViewWork}>
-              View Work
+              {heroData.primaryCta.label}
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="mailto:francisvicta45@gmail.com">
+            <div
+              role="group"
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'lg' }),
+                'gap-2 px-4'
+              )}
+            >
+              <a href={`mailto:${heroData.contact.email}`} className="inline-flex items-center select-text">
                 <Mail className="mr-2 h-4 w-4" />
-                francisvicta45@gmail.com
+                <span className="select-text cursor-text">{heroData.contact.email}</span>
               </a>
-            </Button>
+              <Tooltip open={copied} onOpenChange={(open) => !open && setCopied(false)}>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="icon-sm"
+                    variant="ghost"
+                    aria-label="Copy email address"
+                    onClick={handleCopyEmail}
+                    className="hover:bg-accent/20"
+                  >
+                    <Copy className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Copied!</TooltipContent>
+              </Tooltip>
+            </div>
           </motion.div>
 
           {/* Social Icons */}
@@ -117,16 +170,27 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="flex items-center gap-3 pt-2"
           >
-            <Button variant="ghost" size="sm" asChild>
-              <a href="https://github.com/victafrancis" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="sm" asChild>
-              <a href="https://www.linkedin.com/in/francisvicta/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </Button>
+            {heroData.links.map((link) => {
+              const Icon =
+                link.icon === 'github'
+                  ? Github
+                  : link.icon === 'linkedin'
+                  ? Linkedin
+                  : Mail
+
+              return (
+                <Button key={link.label} variant="ghost" size="sm" asChild>
+                  <a
+                    href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    aria-label={link.ariaLabel ?? link.label}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                </Button>
+              )
+            })}
           </motion.div>
         </motion.div>
 
@@ -137,8 +201,19 @@ export function HeroSection({ onViewWork }: HeroSectionProps) {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="flex justify-center md:justify-end w-full md:w-auto"
         >
-          <div className="w-[150px] h-[270px] flex items-center justify-center">
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="29c94a6c-0c31-4fe7-be44-79af401bcaf8" data-share-badge-host="https://www.credly.com"></div>
+          <div
+            className="flex items-center justify-center"
+            style={{
+              width: heroData.credlyBadge.width,
+              height: heroData.credlyBadge.height
+            }}
+          >
+            <div
+              data-iframe-width={heroData.credlyBadge.width}
+              data-iframe-height={heroData.credlyBadge.height}
+              data-share-badge-id={heroData.credlyBadge.badgeId}
+              data-share-badge-host={heroData.credlyBadge.host}
+            ></div>
           </div>
 
         </motion.div>
