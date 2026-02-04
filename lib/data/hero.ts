@@ -33,12 +33,12 @@ export type HeroData = {
 export const heroData: HeroData = {
   name: 'Francis Victa',
   title: 'Full Stack Cloud Developer & AI Solutions Engineer',
-  tagline: 'Leveraging technology, data and curiosity to build the "more".',
+  tagline: 'Architecting scalable cloud systems and transforming manual workflows into automated, intelligent solutions.',
   profileImage: {
     src: '/images/profile.png',
     alt: 'Francis Victa'
   },
-  badges: ['AWS Certified', 'Serverless Architecture', 'Applied AI Integrations','Student of Life', 'Magis'],
+  badges: ['AWS Certified', 'Serverless Architecture', 'Applied AI Integrations','Student of Life', 'Magis Philosophy'],
   primaryCta: {
     label: 'View Work'
   },
