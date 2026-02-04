@@ -4,35 +4,36 @@ export interface Education {
   period: string
   description: string
   details: string
+  logo?: string
+  link?: string
 }
 
 export const educationAndCertifications: Education[] = [
   {
     title: 'AWS Certified Developer - Associate',
     institution: 'Amazon Web Services',
-    period: '2024 - Present',
+    period: '2026',
     description: 'Validation of expertise in developing and deploying scalable cloud applications on AWS. Covers services like Lambda, DynamoDB, API Gateway, and more.',
-    details: 'Credential ID: AWS-DVA-C02'
+    details: 'Credential ID: AWS-DVA-C02',
+    logo: '/images/aws-certified-developer-associate.png',
+    link: 'https://aws.amazon.com/certification/certified-developer-associate/'
   },
   {
-    title: 'Full Stack Development Bootcamp',
+    title: 'Computer Programmer Analyst - Advanced Diploma',
     institution: 'George Brown College',
-    period: '2019-2020',
-    description: 'Comprehensive training in full-stack web development including frontend, backend, and database technologies. Built multiple projects from concept to deployment.',
-    details: 'Graduated with honors'
+    period: '2018–2020',
+    description: 'A three-year advanced diploma program focused on programming and IT analysis. Training covered software development life cycle, full-stack and mobile development, database management, and applied AI/machine learning through project-based learning.',
+    details: 'Dean’s List • GPA: 3.98 / 4',
+    logo: '/images/gbc.png',
+    link: 'https://www.georgebrown.ca/programs/computer-programming-and-analysis-program-t177'
   },
   {
-    title: 'Data Analytics & Visualization',
-    institution: 'Self-Taught / Coursework',
-    period: '2021-2023',
-    description: 'Specialized training in data analysis, statistical modeling, and visualization tools. Proficient in Tableau, PowerBI, Python data libraries, and SQL.',
-    details: 'Focus on business intelligence and insights'
-  },
-  {
-    title: 'Bachelor of Arts',
-    institution: 'Ryerson University',
-    period: '2015-2019',
-    description: 'General studies with strong focus on technology, business, and entrepreneurship. Developed foundational knowledge in computer science principles.',
-    details: 'Dean\'s Honor List'
+    title: 'Bachelor of Science in Management Engineering (Honours Program)',
+    institution: 'Ateneo de Manila University',
+    period: '2008–2012',
+    description: 'Prestigious honours program combining liberal arts with business management, decision science, analytics, and systems thinking to prepare graduates for technology-intensive leadership roles.',
+    details: 'Dean’s List • Financial Aid Scholar • WES accredited',
+    logo: '/images/ateneo.png',
+    link: 'https://www.ateneo.edu/jgsom/academics/undergraduate/bs-me'
   }
 ]

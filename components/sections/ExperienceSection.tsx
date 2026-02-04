@@ -28,7 +28,20 @@ export function ExperienceSection() {
                 <div className="flex flex-col items-start text-left gap-1">
                   <h3 className="text-lg font-semibold">{exp.role}</h3>
                   <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                    <span className="font-medium">{exp.company}</span>
+                    {exp.companyUrl ? (
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium text-foreground underline-offset-4 hover:underline"
+                      >
+                        {exp.company}
+                      </a>
+                    ) : (
+                      <span className="font-medium">{exp.company}</span>
+                    )}
+                    <span>•</span>
+                    <span>{exp.location}</span>
                     <span>•</span>
                     <span>{exp.period}</span>
                   </div>

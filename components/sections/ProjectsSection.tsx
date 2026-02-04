@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
-import { Code } from 'lucide-react'
+import { ExternalLink, Github, Images, Code } from 'lucide-react'
 import { projects } from '@/lib/data/projects'
 
 export function ProjectsSection() {
@@ -44,14 +44,19 @@ export function ProjectsSection() {
                 >
                   {/* Background Image */}
                   <img
-                    src={project.image || '/placeholder.svg'}
+                    src={project.image}
                     alt={project.title}
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`}
                   />
 
                   {/* Mobile: Always visible title bar at bottom */}
                   <div className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 md:hidden ${isActive ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
-                    <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                      <Badge variant="secondary" className="text-[10px]">
+                        {project.category}
+                      </Badge>
+                    </div>
                     <p className="text-xs text-gray-300">Tap for details</p>
                   </div>
 
@@ -62,10 +67,38 @@ export function ProjectsSection() {
                         <h3 className="text-xl font-bold text-white">
                           {project.title}
                         </h3>
+                        <Badge variant="secondary" className="text-[10px]">
+                          {project.category}
+                        </Badge>
                         <p className="text-sm text-gray-200 leading-relaxed">
                           {project.description}
                         </p>
                       </div>
+                      {project.links && project.links.length > 0 ? (
+                        <div className="flex flex-wrap gap-2">
+                          {project.links.map((link) => {
+                            const label = link.label.toLowerCase()
+                            const Icon = label.includes('github')
+                              ? Github
+                              : label.includes('snapshot') || label.includes('gallery') || label.includes('image')
+                                ? Images
+                                : ExternalLink
+
+                            return (
+                              <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1 rounded-md border border-white/20 px-2 py-1 text-xs text-white/90 transition hover:border-white/60 hover:text-white"
+                              >
+                                <Icon className="h-3.5 w-3.5" />
+                                {link.label}
+                              </a>
+                            )
+                          })}
+                        </div>
+                      ) : null}
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech) => (
                           <Badge key={tech} variant="secondary" className="text-xs">
