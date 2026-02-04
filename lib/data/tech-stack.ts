@@ -103,7 +103,7 @@ export const techStackGroups: TechStackGroup[] = [
     label: 'AI Tools',
     color: 'text-rose-500',
     borderColor: 'border-rose-500/40',
-    items: ['GitHub Copilot', 'Cursor', 'Cline']
+    items: ['GitHub Copilot', 'Cursor', 'Cline', 'OpenAI', 'OpenRouter', 'Gemini', 'Claude']
   }
 ]
 
