@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
-import { ExternalLink, Github, Images, Code } from 'lucide-react'
+import { ExternalLink, Github, Images, Code, Maximize2 } from 'lucide-react'
 import { projects } from '@/lib/data/projects'
+import { Lightbox } from '@/components/ui/lightbox'
 
 export function ProjectsSection() {
   const [activeCard, setActiveCard] = useState<string | null>(null)
@@ -100,6 +101,20 @@ export function ProjectsSection() {
                               </a>
                             )
                           })}
+                          <Lightbox
+                            imageSrc={project.image}
+                            alt={`${project.title} cover image`}
+                            trigger={
+                              <button
+                                type="button"
+                                onClick={(event) => event.stopPropagation()}
+                                className="inline-flex items-center gap-1 rounded-md border border-white/20 px-2 py-1 text-xs text-white/90 transition hover:border-white/60 hover:text-white"
+                                aria-label={`Enlarge ${project.title} cover image`}
+                              >
+                                <Maximize2 className="h-3.5 w-3.5" />
+                              </button>
+                            }
+                          />
                         </div>
                       ) : null}
                       <div className="flex flex-wrap gap-2">

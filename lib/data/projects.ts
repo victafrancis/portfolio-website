@@ -197,7 +197,13 @@ export const projects: Project[] = [
     description: 'Custom Excel reporting dashboard with streamlined monthly data updates for client reporting.',
     tech: ['Excel'],
     image: '/images/projects/client-report-dashboard.jpg',
-    category: 'Data'
+    category: 'Data',
+    links: [
+      {
+        label: 'Snapshots',
+        href: ''
+      }
+    ]
   },
   {
     title: 'High-Low Casino Game',

@@ -5,12 +5,12 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronUp, ChevronDown } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { moreLifeCards } from '@/lib/data/more-life'
+import { Lightbox } from '@/components/ui/lightbox'
 
 export function MoreLifeSection() {
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
   const toggleCardExpanded = (cardTitle: string) => {
     const newExpanded = new Set(expandedCards)
@@ -21,19 +21,6 @@ export function MoreLifeSection() {
     }
     setExpandedCards(newExpanded)
   }
-
-  useEffect(() => {
-    if (!lightboxImage) return
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setLightboxImage(null)
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [lightboxImage])
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -76,22 +63,27 @@ export function MoreLifeSection() {
                     {card.expandedContent.images.length > 0 && (
                       <div className="space-y-3">
                         {card.expandedContent.images.map((image) => (
-                          <button
+                          <Lightbox
                             key={image}
-                            type="button"
-                            className="group relative w-full overflow-hidden rounded-lg border bg-muted/20"
-                            onClick={() => setLightboxImage(image)}
-                          >
-                            <img
-                              src={image}
-                              alt={`${card.title} visual`}
-                              className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                              loading="lazy"
-                            />
-                            <span className="absolute inset-0 flex items-center justify-center bg-black/0 text-xs font-medium uppercase tracking-wider text-white opacity-0 transition-all duration-300 group-hover:bg-black/40 group-hover:opacity-100">
-                              Click to enlarge
-                            </span>
-                          </button>
+                            imageSrc={image}
+                            alt={`${card.title} visual`}
+                            trigger={
+                              <button
+                                type="button"
+                                className="group relative w-full overflow-hidden rounded-lg border bg-muted/20"
+                              >
+                                <img
+                                  src={image}
+                                  alt={`${card.title} visual`}
+                                  className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                  loading="lazy"
+                                />
+                                <span className="absolute inset-0 flex items-center justify-center bg-black/0 text-xs font-medium uppercase tracking-wider text-white opacity-0 transition-all duration-300 group-hover:bg-black/40 group-hover:opacity-100">
+                                  Click to enlarge
+                                </span>
+                              </button>
+                            }
+                          />
                         ))}
                       </div>
                     )}
@@ -137,32 +129,6 @@ export function MoreLifeSection() {
           </motion.div>
         )
       })}
-      {lightboxImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setLightboxImage(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="relative max-h-[90vh] max-w-[90vw]"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <img
-              src={lightboxImage}
-              alt="Expanded view"
-              className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
-            />
-            <button
-              type="button"
-              onClick={() => setLightboxImage(null)}
-              className="absolute right-3 top-3 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white transition hover:bg-black"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
