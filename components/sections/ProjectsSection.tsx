@@ -42,7 +42,7 @@ export function ProjectsSection() {
                 className={project.span === 2 ? 'md:col-span-2' : ''}
               >
                 <div 
-                  className="group relative h-64 rounded-lg overflow-hidden border border-border hover:border-accent/50 transition-colors cursor-pointer"
+                  className="group relative h-72 md:h-80 lg:h-96 rounded-lg overflow-hidden border border-border hover:border-accent/50 transition-colors cursor-pointer"
                   onClick={() => handleCardClick(project.title)}
                 >
                   {/* Background Image */}
@@ -111,8 +111,9 @@ export function ProjectsSection() {
                                 type="button"
                                 onClick={(event) => event.stopPropagation()}
                                 className="inline-flex items-center gap-1 rounded-md border border-white/20 px-2 py-1 text-xs text-white/90 transition hover:border-white/60 hover:text-white"
-                                aria-label={`Enlarge ${project.title} cover image`}
+                                aria-label={`View ${project.title} cover image`}
                               >
+                                <span>View image</span>
                                 <Maximize2 className="h-3.5 w-3.5" />
                               </button>
                             }
