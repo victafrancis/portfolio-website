@@ -17,6 +17,21 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'Weekly Automated Sermon Summarizer (CCF Podcast)',
+    description:
+      'AWS Lambda workflow that fetches the latest CCF sermon podcast, summarizes the audio with Gemini AI, and emails the recap while DynamoDB prevents re-processing.',
+    tech: ['AWS Lambda', 'EventBridge', 'DynamoDB', 'SES', 'Python', 'Gemini AI'],
+    image: '/images/projects/automated-sermon-summarizer.png',
+    category: 'Developer',
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/victafrancis/AWS-automated-sermon-summarizer'
+      }
+    ],
+    span: 1
+  },
+  {
     title: 'Little Bloom Photography Website',
     description:
       'Designed and built a full photography business website with responsive layouts, SEO focus, and a custom contact flow.',
