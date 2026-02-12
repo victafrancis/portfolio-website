@@ -17,7 +17,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Weekly Automated Sermon Summarizer (CCF Podcast)',
+    title: 'AWS Weekly Automated Sermon Summarizer (CCF Podcast)',
     description:
       'AWS Lambda workflow that fetches the latest CCF sermon podcast, summarizes the audio with Gemini AI, and emails the recap while DynamoDB prevents re-processing.',
     tech: ['AWS Lambda', 'EventBridge', 'DynamoDB', 'SES', 'Python', 'Gemini AI'],

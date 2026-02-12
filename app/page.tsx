@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { ExperienceSection } from '@/components/sections/ExperienceSection'
 import { ProjectsSection } from '@/components/sections/ProjectsSection'
 import { EducationSection } from '@/components/sections/EducationSection'
+import { VolunteerSection } from '@/components/sections/VolunteerSection'
 import { SkillsSection } from '@/components/sections/SkillsSection'
 import { MoreLifeSection } from '@/components/sections/MoreLifeSection'
 import { Footer } from '@/components/sections/Footer'
@@ -26,6 +27,9 @@ export default function PortfolioPage() {
 
       {/* Experience Section */}
       <ExperienceSection />
+
+      {/* Volunteer */}
+      <VolunteerSection />
 
       {/* Projects Section */}
       <ProjectsSection />
