@@ -32,6 +32,32 @@ export const projects: Project[] = [
     span: 1
   },
   {
+    title: 'Sprout: Parenting App',
+    description:
+      'An AI-powered application that generates personalized weekly development plans for my child. The system transforms unstructured daily feedback logs into strict, structured data with LLMs, uses a Split-Brain architecture separating the Next.js frontend from AWS Lambda AI processing, and applies DynamoDB Single Table Design for profiles, logs, and plans.',
+    tech: [
+      'Next.js',
+      'AWS Lambda',
+      'DynamoDB',
+      'S3',
+      'OpenRouter API',
+      'Gemini AI Models'
+    ],
+    image: '/images/projects/sprout-parenting-app.png',
+    category: 'Developer',
+    links: [
+      {
+        label: 'Live Demo',
+        href: 'https://main.d4h79py8dy0s1.amplifyapp.com/'
+      },
+      {
+        label: 'GitHub',
+        href: 'https://github.com/victafrancis/sprout-parenting-app'
+      }
+    ],
+    span: 2
+  },
+  {
     title: 'Little Bloom Photography Website',
     description:
       'Designed and built a full photography business website with responsive layouts, SEO focus, and a custom contact flow.',
@@ -84,20 +110,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    title: 'Job Hunter AI Assistant',
-    description:
-      'Streamlit app that parses job posts with OpenAI, matches skills, and tracks applications with a PostgreSQL backend.',
-    tech: ['Python', 'Streamlit', 'OpenAI', 'PostgreSQL'],
-    image: '/images/projects/job-hunter-ai.png',
-    category: 'Developer',
-    links: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/victafrancis/jobhunter_ai'
-      }
-    ]
-  },
-  {
     title: 'Gift Canada Website',
     description:
       'Volunteer-built nonprofit website with ongoing maintenance and updates for community outreach.',
@@ -108,6 +120,21 @@ export const projects: Project[] = [
       {
         label: 'Live Site',
         href: 'https://giftcanada.org/'
+      }
+    ],
+    span: 2
+  },
+  {
+    title: 'Job Hunter AI Assistant',
+    description:
+      'Streamlit app that parses job posts with OpenAI, matches skills, and tracks applications with a PostgreSQL backend.',
+    tech: ['Python', 'Streamlit', 'OpenAI', 'PostgreSQL'],
+    image: '/images/projects/job-hunter-ai.png',
+    category: 'Developer',
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/victafrancis/jobhunter_ai'
       }
     ]
   },
