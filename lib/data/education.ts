@@ -16,7 +16,7 @@ export const educationAndCertifications: Education[] = [
     description: 'Validation of expertise in developing and deploying scalable cloud applications on AWS. Covers services like Lambda, DynamoDB, API Gateway, and more.',
     details: 'Credential ID: AWS-DVA-C02',
     logo: '/images/aws-certified-developer-associate.png',
-    link: 'https://aws.amazon.com/certification/certified-developer-associate/'
+    link: 'https://www.credly.com/badges/29c94a6c-0c31-4fe7-be44-79af401bcaf8'
   },
   {
     title: 'Computer Programmer Analyst - Advanced Diploma',
