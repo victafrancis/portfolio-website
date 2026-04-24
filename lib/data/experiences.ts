@@ -15,6 +15,7 @@ export const experiences: Experience[] = [
     location: 'Vaughan, ON',
     period: '2026-Current',
     description: 'Building and improving internal software.',
+    companyUrl: `https://entegrasolutions.com/`,
     tech: ['C#', '.NET', 'WPF', 'SQLite', 'Data', 'Syncfusion']
   },
   {
