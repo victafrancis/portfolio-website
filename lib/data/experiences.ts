@@ -10,6 +10,14 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    role: 'Software Developer III',
+    company: 'Entegra Solutions (NDT Global)',
+    location: 'Vaughan, ON',
+    period: '2026-Current',
+    description: 'Building and improving internal software.',
+    tech: ['C#', '.NET', 'WPF', 'SQLite', 'Data', 'Syncfusion']
+  },
+  {
     role: 'Fullstack Developer (Data and Back-end Focus)',
     company: 'LabX Media Group',
     location: 'Midland, ON',
@@ -17,7 +25,7 @@ export const experiences: Experience[] = [
     description:
       'As a Full Stack Developer at LabX Media Group, I focused primarily on back-end development while also contributing to front-end internal-facing UI projects across multiple brands. I consistently delivered new features by designing and updating data models, creating API endpoints, and enhancing user-facing applications. Beyond standard development, I architected cloud-native solutions using AWS, such as serverless sitemap generators, and integrated AI workflows to automate SEO tasks for our editorial team. More importantly, I also engineered automated ETL pipelines to execute complex data migrations and support stakeholder reporting. These combined efforts in AI integration, cloud infrastructure, and data management helped drive both team productivity and business decision-making.',
     companyUrl: 'https://www.labxmediagroup.com/',
-    tech: ['Back-end', 'Data', 'ETL', 'SQL', 'API Development', 'UI']
+    tech: ['Node','C#','Javascript','ReactJS','NextJS','Data', 'ETL', 'SQL', 'API Development', 'UI']
   },
   {
     role: 'Fullstack Developer / Project Lead',
